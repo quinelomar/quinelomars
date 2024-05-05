@@ -10,11 +10,19 @@
 <style>
     body {
         background-image: url('cielo 1.jpeg');
-        background-size: 100% 150%;
+        background-size: 100% 200%;
         background-position: center center;
         background-repeat: no-repeat;
         margin: 0;
         padding: 0;
+    }
+    .container {
+        position: relative; /* Se agrega posición relativa al contenedor */
+        z-index: 0; /* Asegura que el contenido esté por encima del fondo */
+        background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco traslúcido */
+        padding: 20px; /* Espaciado interior para que el contenido no toque los bordes */
+        border-radius: 10px; /* Bordes redondeados */
+        margin: 20px; /* Margen para separar del borde del navegador */
     }
     h1 {
         text-align: center;
@@ -478,3 +486,4 @@
 </script>
 </body>
 </html>
+
