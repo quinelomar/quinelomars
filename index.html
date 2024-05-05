@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QUINELOMAR'S</title>
+<title>QUINIELOMAR'S</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -122,11 +122,12 @@
         opacity: 0.8;
     }
     #total {
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 16px;
-        color: black;
-    }
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px; /* Cambia el tamaño de la fuente a 20px */
+    font-weight: bold; /* Hace que el texto sea en negrita */
+    color: black;
+}
     #historial {
         text-align: center;
         margin-bottom: 20px;
@@ -146,13 +147,14 @@
         cursor: pointer;
     }
     .watermark {
-        position: absolute;
-        top: 34%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 10;
-        z-index: -1;
-    }
+    position: absolute;
+    top: 34%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 10;
+    z-index: -1;
+    max-width: 300px; /* Ajusta el tamaño máximo de la marca de agua según tus necesidades */
+}
     .image-text-container {
         display: flex;
         justify-content: center;
@@ -177,10 +179,10 @@
 </head>
 <body>
 <div class="container">
-    <h1>QUINELOMAR'S</h1>
+    <h1>QUINIELOMAR'S</h1>
     <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: black; font-size: 12px; font-family: 'Anton', sans-serif;">
-        <div>PRECIO: $15 c/u</div>
-        <div>CIERRE: 10/MAYO/2024</div>
+        <div>PRECIO: $10 c/u</div>
+        <div>CIERRE: 7/MAYO 11:00AM</div>
     </div>
     <table>
         <tr>
@@ -354,12 +356,12 @@
         <input type="text" id="nombre-usuario" placeholder="Nombre o Apodo">
     </div>
     <div class="btn-container">
-        <button class="btn btn-limpiar" onclick="limpiarSeleccion()"><i class="fas fa-broom"></i> Limpiar</button>
-        <button class="btn btn-aleatorio" onclick="seleccionAleatoria()"><i class="fas fa-random"></i> Selección Aleatoria</button>
-        <button class="btn btn-quiniela" onclick="agregarQuiniela()"><i class="fas fa-plus"></i> Agregar quiniela</button>
+        <button class="btn btn-limpiar" onclick="limpiarSeleccion()"><i class="fas fa-broom"></i> LIMPIAR</button>
+        <button class="btn btn-aleatorio" onclick="seleccionAleatoria()"><i class="fas fa-random"></i> SELECCION ALEATORIA</button>
+        <button class="btn btn-quiniela" onclick="agregarQuiniela()"><i class="fas fa-plus"></i> AGREGAR</button>
     </div>
     <div class="btn-container-whatsapp">
-        <button class="btn btn-whatsapp" onclick="sendWhatsAppMessage()"><i class="fab fa-whatsapp"></i> Enviar </button>
+        <button class="btn btn-whatsapp" onclick="sendWhatsAppMessage()"><i class="fab fa-whatsapp"></i> ENVIAR </button>
     </div>
     <div id="total">TOTAL: $0</div>
     <div id="historial"></div>
@@ -367,123 +369,130 @@
 <!-- Agregar marca de agua como fondo de la tabla -->
 <img id="watermark" class="watermark" src="fondo 1.png" alt="Marca de agua">
 <script>
-    var costoTotal = 0;
+   var costoTotal = 0; // Costo inicial de la quiniela
 
-    function selectCell(cell) {
-        var row = cell.parentNode;
-        var cells = row.getElementsByTagName("td");
-        for (var i = 0; i < cells.length; i++) {
-            cells[i].classList.remove("selected");
+function selectCell(cell) {
+    var row = cell.parentNode;
+    var cells = row.getElementsByTagName("td");
+    for (var i = 0; i < cells.length; i++) {
+        cells[i].classList.remove("selected");
+    }
+    cell.classList.add("selected");
+    updateSummary();
+}
+
+function updateSummary() {
+    var selectedCells = document.querySelectorAll(".selected");
+    var nombreUsuario = document.getElementById("nombre-usuario").value;
+    var totalGoles = document.getElementById("total-goles").value;
+    var summaryText = "Resumen: ";
+    selectedCells.forEach(function(cell, index) {
+        if (index > 0) {
+            summaryText += " - ";
         }
-        cell.classList.add("selected");
-        updateSummary();
+        summaryText += cell.textContent.trim();
+    });
+    summaryText += " - " + nombreUsuario + " - " + totalGoles + " goles";
+    document.getElementById("total").textContent = "TOTAL: $" + costoTotal;
+}
+
+function sendWhatsAppMessage() {
+    var historialItems = document.querySelectorAll(".historial-item");
+
+    // Verificar que haya elementos en el historial
+    if (historialItems.length === 0) {
+        alert("Debe agregar al menos una quiniela al historial antes de enviar el mensaje.");
+        return;
     }
 
-    function updateSummary() {
-        var selectedCells = document.querySelectorAll(".selected");
-        var nombreUsuario = document.getElementById("nombre-usuario").value;
-        var totalGoles = document.getElementById("total-goles").value;
-        var summaryText = "Resumen: ";
-        selectedCells.forEach(function(cell, index) {
-            if (index > 0) {
-                summaryText += " - ";
-            }
-            summaryText += cell.textContent.trim();
-        });
-        summaryText += " - " + nombreUsuario + " - " + totalGoles + " goles";
-        document.getElementById("total").textContent = "TOTAL: $" + costoTotal;
+    var historialText = "";
+    historialItems.forEach(function(item, index) {
+        historialText += item.textContent.replace("❌", "").trim() + "\n";
+    });
+    var costoTotal = document.getElementById("total").textContent;
+    var phoneNumber = "tu_numero_de_whatsapp";
+    var whatsappUrl = "https://wa.me/" + 3322338504 + "/?text=" + encodeURIComponent(historialText + "\n" + costoTotal);
+    window.open(whatsappUrl, "_blank");
+}
+
+function sendWhatsAppMessageInformes() {
+    var mensaje = "!!!QUIERO MAS INFORMES SOBRE LAS QUINIELAS!!!⚽😄";
+    var phoneNumber = "tu_numero_de_whatsapp";
+    var whatsappUrl = "https://wa.me/" + 3336263675 + "/?text=" + encodeURIComponent(mensaje);
+    window.open(whatsappUrl, "_blank");
+}
+
+function seleccionAleatoria() {
+    var table = document.getElementsByTagName("table")[0];
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        var randomIndex = Math.floor(Math.random() * 3); // 0, 1, 2
+        cells[randomIndex * 2].click();
+    }
+}
+
+function agregarQuiniela() {
+    var selectedCells = document.querySelectorAll(".selected");
+    var nombreUsuario = document.getElementById("nombre-usuario").value;
+    var totalGoles = document.getElementById("total-goles").value;
+
+    // Verificar que todos los campos estén completos
+    if (nombreUsuario === "" || totalGoles === "") {
+        alert("Debe ingresar su nombre/apodo y el total de goles antes de agregar más quinielas.");
+        return;
     }
 
-    function sendWhatsAppMessage() {
-        var historialItems = document.querySelectorAll(".historial-item");
-        var historialText = "";
-        historialItems.forEach(function(item, index) {
-            historialText += item.textContent.replace("❌", "").trim() + "\n";
-        });
-        var costoTotal = document.getElementById("total").textContent;
-        var phoneNumber = "tu_numero_de_whatsapp";
-        var whatsappUrl = "https://wa.me/" + 3336263675 + "/?text=" + encodeURIComponent(historialText + "\n" + costoTotal);
-        window.open(whatsappUrl, "_blank");
-    }
-
-    function sendWhatsAppMessageInformes() {
-        var mensaje = "!!!QUIERO MAS INFORMES SOBRE LAS QUINIELAS!!!⚽😄";
-        var phoneNumber = "tu_numero_de_whatsapp";
-        var whatsappUrl = "https://wa.me/" + 3336263675 + "/?text=" + encodeURIComponent(mensaje);
-        window.open(whatsappUrl, "_blank");
-    }
-
-    function seleccionAleatoria() {
-        var table = document.getElementsByTagName("table")[0];
-        var rows = table.getElementsByTagName("tr");
-        for (var i = 1; i < rows.length; i++) {
-            var cells = rows[i].getElementsByTagName("td");
-            var randomIndex = Math.floor(Math.random() * 3); // 0, 1, 2
-            cells[randomIndex * 2].click();
-        }
-    }
-
-    function agregarQuiniela() {
-        var selectedCells = document.querySelectorAll(".selected");
-        var nombreUsuario = document.getElementById("nombre-usuario").value;
-        var totalGoles = document.getElementById("total-goles").value;
-
-        // Verificar que todos los campos estén completos
-        if (totalGoles === "") {
-            alert("Debe ingresar el total de goles antes de agregar más quinielas.");
+    // Verificar que se haya seleccionado una opción en cada fila de la tabla
+    var table = document.getElementsByTagName("table")[0];
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        if (!Array.from(cells).some(cell => cell.classList.contains("selected"))) {
+            alert("Debe seleccionar una opción para cada partido antes de agregar más quinielas.");
             return;
         }
+    }
 
-        // Verificar que se haya seleccionado una opción en cada fila de la tabla
-        var table = document.getElementsByTagName("table")[0];
-        var rows = table.getElementsByTagName("tr");
-        for (var i = 1; i < rows.length; i++) {
-            var cells = rows[i].getElementsByTagName("td");
-            if (!Array.from(cells).some(cell => cell.classList.contains("selected"))) {
-                alert("Debe seleccionar una opción para cada partido antes de agregar más quinielas.");
-                return;
-            }
+    // Si todos los campos están completos, agregar la quiniela al historial
+    var nuevaQuiniela = document.createElement("div");
+    nuevaQuiniela.classList.add("historial-item");
+    nuevaQuiniela.textContent = nombreUsuario + " - " + totalGoles + " goles - ";
+    selectedCells.forEach(function(cell, index) {
+        if (index > 0) {
+            nuevaQuiniela.textContent += " - ";
         }
+        nuevaQuiniela.textContent += cell.textContent.trim();
+    });
 
-        // Si todos los campos están completos, agregar la quiniela al historial
-        var nuevaQuiniela = document.createElement("div");
-        nuevaQuiniela.classList.add("historial-item");
-        nuevaQuiniela.textContent = nombreUsuario + " - " + totalGoles + " goles - ";
-        selectedCells.forEach(function(cell, index) {
-            if (index > 0) {
-                nuevaQuiniela.textContent += " - ";
-            }
-            nuevaQuiniela.textContent += cell.textContent.trim();
-        });
-
-        var deleteButton = document.createElement("span");
-        deleteButton.textContent = "❌";
-        deleteButton.classList.add("delete-btn");
-        deleteButton.onclick = function() {
-            nuevaQuiniela.remove();
-            costoTotal -= 15;
-            document.getElementById("total").textContent = "TOTAL: $" + costoTotal;
-        };
-        nuevaQuiniela.appendChild(deleteButton);
-
-        document.getElementById("historial").appendChild(nuevaQuiniela);
-
-        // Actualizar el total
-        costoTotal += 15;
+    var deleteButton = document.createElement("span");
+    deleteButton.textContent = "❌";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.onclick = function() {
+        nuevaQuiniela.remove();
+        costoTotal -= 10; // Restar 10 pesos al quitar una quiniela
         document.getElementById("total").textContent = "TOTAL: $" + costoTotal;
+    };
+    nuevaQuiniela.appendChild(deleteButton);
 
-        // Limpiar selecciones después de agregar la quiniela
-        limpiarSeleccion();
-    }
+    document.getElementById("historial").appendChild(nuevaQuiniela);
 
-    function limpiarSeleccion() {
-        var selectedCells = document.querySelectorAll(".selected");
-        selectedCells.forEach(function(cell) {
-            cell.classList.remove("selected");
-        });
-        document.getElementById("total-goles").value = "";
-    }
+    // Actualizar el total
+    costoTotal += 10; // Sumar 10 pesos al agregar una quiniela
+    document.getElementById("total").textContent = "TOTAL: $" + costoTotal;
+
+    // Limpiar selecciones después de agregar la quiniela
+    limpiarSeleccion();
+}
+
+function limpiarSeleccion() {
+    var selectedCells = document.querySelectorAll(".selected");
+    selectedCells.forEach(function(cell) {
+        cell.classList.remove("selected");
+    });
+    document.getElementById("total-goles").value = "";
+}
+
 </script>
 </body>
-</html>
-
+</html> 
