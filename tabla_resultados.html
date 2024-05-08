@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUINIELOMAR'S</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+    body {
+        background-image: url('cielo 1.jpeg');
+        background-size: 100% 200%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        position: relative;
+        z-index: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 1000px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+        font-family: 'Anton', sans-serif;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        margin-bottom: 0;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+    th, td {
+        border: 1px solid #2D2625;
+        padding: 5px;
+        text-align: center;
+        font-size: 12px;
+        color: #333;
+    }
+    th {
+        background-color: #333;
+        color: #fff;
+    }
+    td {
+        background-color: transparent;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .selected-row {
+        background-color: #ffffff; /* Blanco */
+        border: 2px solid #333; /* Borde oscuro */
+    }
+    .custom-button {
+        display: inline-block;
+        padding: 3px 8px;
+        margin-top: 20px;
+        background-color: #ff7f50; /* Naranja */
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Anton', sans-serif;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .custom-button:hover {
+        background-color: #ff6347; /* Naranja más oscuro al hacer hover */
+    }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>TABLA DE RESULTADOS</h1>
+  <input type="text" id="searchInput" onkeyup="buscarQuiniela()" placeholder="Buscar tu nombre...">
+  <a href="videojuego Forza Horizon.html" class="custom-button">QUINIELA</a>
+  <table id="quiniela">
+    <tr>
+      <th>PARTICIPANTE</th>
+      <th>DORMUNT VS PSG  0-1</th>
+      <th>GUADALAJARA VS TOLUCA</th> 
+      <th>REAL MADRID VS BAYERN</th>
+      <th>PACHUCA VS AMERICA</th>
+      <th>TIGRES VS MONTERREY</th>
+      <th>PUMAS VS CRUZ AZUL</th>
+      <th>LEVERKUSEN VS ROMA</th>
+      <th>ATALANTA VS MARSELLA</th>
+      <th>FROSINOSE VS ITER</th>
+      <th>TOTAL GOLES 1</th>
+      <th>PUNTOS</th>
+    </tr>
+<tr>
+  <td>Chenson</td>
+  <td>E</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>E</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>29</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Nicolás</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>E</td>
+  <td>L</td>
+  <td>E</td>
+  <td>23</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Patricio</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Bautista</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>26</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Patricio</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>V</td>
+  <td>23</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Nicolás</td>
+  <td>L</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>33</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Nicolás</td>
+  <td>E</td>
+  <td>V</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>V</td>
+  <td>E</td>
+  <td>L</td>
+  <td>28</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Bautista</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>L</td>
+  <td>E</td>
+  <td>E</td>
+  <td>30</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Bautista</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>V</td>
+  <td>E</td>
+  <td>V</td>
+  <td>L</td>
+  <td>E</td>
+  <td>V</td>
+  <td>27</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Alberto</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>E</td>
+  <td>V</td>
+  <td>L</td>
+  <td>E</td>
+  <td>V</td>
+  <td>27</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Blaxxy</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>E</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Blaxxy</td>
+  <td>V</td>
+  <td>E</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Chenson</td>
+  <td>V</td>
+  <td>E</td>
+  <td>L</td>
+  <td>E</td>
+  <td>E</td>
+  <td>V</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>32</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Jorge</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Osvaldo</td>
+  <td>L</td>
+  <td>E</td>
+  <td>L</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>osvaldo</td>
+  <td>E</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>20</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>lupita</td>
+  <td>L</td>
+  <td>L</td>
+  <td>E</td>
+  <td>L</td>
+  <td>E</td>
+  <td>V</td>
+  <td>L</td>
+  <td>E</td>
+  <td>V</td>
+  <td>24</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Tomas</td>
+  <td>L</td>
+  <td>L</td>
+  <td>E</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>E</td>
+  <td>V</td>
+  <td>23</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Adán Alejandro</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>21</td>
+  <td>0</td>
+</tr>
+    <tr>
+  <td>Lara</td>
+  <td>V</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>E</td>
+  <td>V</td>
+  <td>26</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Cande</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>E</td>
+  <td>E</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Cande y cedu</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>V</td>
+  <td>21</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Cande</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>27</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Cristopher</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>V</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Cristopher</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Rulas</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>E</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>23</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Rulas</td>
+  <td>V</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>22</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>cedu</td>
+  <td>E</td>
+  <td>L</td>
+  <td>L</td>
+  <td>E</td>
+  <td>E</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>23</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>cedu</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>E</td>
+  <td>E</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>V</td>
+  <td>25</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Omar 123</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>L</td>
+  <td>E</td>
+  <td>V</td>
+  <td>E</td>
+  <td>L</td>
+  <td>V</td>
+  <td>28</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>Omar 123</td>
+  <td>E</td>
+  <td>E</td>
+  <td>L</td>
+  <td>E</td>
+  <td>E</td>
+  <td>V</td>
+  <td>L</td>
+  <td>L</td>
+  <td>V</td>
+  <td>26</td>
+  <td>0</td>
+</tr>
+
+</tr>
+
+    <!-- Aquí puedes agregar más filas para más participantes -->
+  </table>
+</div>
+
+<script>
+    var participantes = document.querySelectorAll("#quiniela tr");
+
+ function buscarQuiniela() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("quiniela");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) { // Comenzamos en 1 para omitir la fila de encabezados
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].classList.add("selected-row");
+                tr[i].scrollIntoView({ behavior: "smooth", block: "center" });
+            } else {
+                tr[i].classList.remove("selected-row");
+            }
+        }
+    }
+}
+
+
+
+    function actualizarResultado(partido, resultado) {
+        var table = document.getElementById("quiniela");
+        for (var i = 2; i < table.rows.length; i++) {
+            var participante = table.rows[i].cells[0].innerText;
+            if (participante !== "Total") {
+                var cell = table.rows[i].cells[partido];
+                if (cell.innerText === resultado) {
+                    cell.style.backgroundColor = "#4CAF50"; // Verde para resultado correcto
+                    var puntosCell = table.rows[i].cells[11];
+                    puntosCell.innerText = parseInt(puntosCell.innerText) + 1;
+                }
+            }
+        }
+        ordenarTabla();
+    }
+
+    function ordenarTabla() {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("quiniela");
+        switching = true;
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 2); i++) { // Comenzamos en 1 para omitir la fila de encabezados y la fila "Total"
+                shouldSwitch = false;
+                x = parseInt(rows[i].cells[11].innerText); // Puntos actual
+                y = parseInt(rows[i + 1].cells[11].innerText); // Puntos siguiente
+                if (x < y) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); // Mueve la fila hacia arriba
+                switching = true;
+            }
+        }
+    }
+
+    actualizarResultado(1, "V");
+   actualizarResultado(2, "");
+   actualizarResultado(3, "");
+   actualizarResultado(4, "");
+   actualizarResultado(5, "");
+   actualizarResultado(6, "");
+  actualizarResultado(7, "");
+  actualizarResultado(8, "");
+   actualizarResultado(9, "");
+
+    // Puedes agregar más funciones y personalizaciones según tus necesidades
+
+</script>
+
+</body>
+</html> 
+
