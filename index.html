@@ -146,6 +146,20 @@
         color: #dc3545;
         cursor: pointer;
     }
+    .custom-button {
+        display: inline-block;
+        padding: 3px 8px;
+        margin-top: 20px;
+        background-color: #ff7f50; /* Naranja */
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Anton', sans-serif;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+    }
+    .custom-button:hover {
+        background-color: #ff6347; /* Naranja más oscuro al hacer hover */
+    }
     .watermark {
     position: absolute;
     top: 34%;
@@ -180,10 +194,11 @@
 <body>
 <div class="container">
     <h1>QUINIELOMAR'S</h1>
+ <div><a href="tabla_resultados.html" class="custom-button">TABLA DE RESULTADOS</a></div>
     <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: black; font-size: 12px; font-family: 'Anton', sans-serif;">
         <div>PRECIO: $10 c/u</div>
         <div>CIERRE: 7/MAYO 11:00AM</div>
-    </div>
+</div>
     <table>
         <tr>
             <th>LOCAL</th>
@@ -247,15 +262,15 @@
             <td onclick="selectCell(this)">L</td>
             <td>
                 <div class="image-text-container">
-                    <img src="pachuca.png" alt="imagen 1">
-                    <span>PACHUCA</span>
+                    <img src="america.png" alt="imagen 1">
+                    <span>AMERICA</span>
                 </div>
             </td>
             <td onclick="selectCell(this)">E</td>
             <td>
                 <div class="image-text-container">
-                    <span>AMERICA</span>
-                    <img src="america.png" alt="Imagen 2">
+                    <span>PACHUCA</span>
+                    <img src="pachuca.png" alt="Imagen 2">
                 </div>
             </td>
             <td onclick="selectCell(this)">V</td>
@@ -332,15 +347,15 @@
             <td onclick="selectCell(this)">L</td>
             <td>
                 <div class="image-text-container">
-                    <img src="frosinone.png" alt="imagen 1">
-                    <span>FROSINONE</span>
+                    <img src="united.png" alt="imagen 1">
+                    <span>MAN UNITED</span>
                 </div>
             </td>
             <td onclick="selectCell(this)">E</td>
             <td>
                 <div class="image-text-container">
-                    <span>INTER</span>
-                    <img src="inter.png" alt="Imagen 2">
+                    <span>ARSENAL</span>
+                    <img src="arsenal.png" alt="Imagen 2">
                 </div>
             </td>
             <td onclick="selectCell(this)">V</td>
@@ -418,7 +433,7 @@ function sendWhatsAppMessage() {
 function sendWhatsAppMessageInformes() {
     var mensaje = "!!!QUIERO MAS INFORMES SOBRE LAS QUINIELAS!!!⚽😄";
     var phoneNumber = "tu_numero_de_whatsapp";
-    var whatsappUrl = "https://wa.me/" + 3328187052 + "/?text=" + encodeURIComponent(mensaje);
+    var whatsappUrl = "https://wa.me/" + 3336263675 + "/?text=" + encodeURIComponent(mensaje);
     window.open(whatsappUrl, "_blank");
 }
 
@@ -495,4 +510,4 @@ function limpiarSeleccion() {
 
 </script>
 </body>
-</html> 
+</html>
