@@ -90,7 +90,7 @@ table {
     <tr>
       <th>PARTICIPANTE</th>
       <th>PLYMPIACOS VS FIORENTNA 1-0 </th>
-      <th>MIAMI VS ATLANTA </th>
+      <th>MIAMI VS ATLANTA 1-3 </th>
       <th>MEXICO VS BOLIVIA</th>
       <th>COSTA RICA VS URUGUAY </th>
       <th> ROMA VS MILAN</th>
@@ -98,7 +98,7 @@ table {
       <th>PACHUCA VS COLUMBUS CREW</th>
       <th> ATALANTA VS FIORENTINA </th>
       <th>INDONECIA VS TANZANIA</th>
-      <th>TOTAL GOLES  </th>
+      <th>TOTAL GOLES 5 </th>
       <th>PUNTOS</th>
     </tr>
     <tr>
@@ -1104,6 +1104,7 @@ table {
   <td>L</td>
   <td>L</td>
   <td>E</td>
+  <td>V</td>
   <td>28</td>
   <td>0</td>
 </tr>
@@ -1335,7 +1336,6 @@ table {
     <!-- Aquí puedes agregar más filas para más participantes -->
   </table>
 </div>
-
 <script>
     var participantes = document.querySelectorAll("#quiniela tr");
 
@@ -1384,7 +1384,7 @@ function actualizarResultado(partido, resultado) {
         while (switching) {
             switching = false;
             rows = table.rows;
-            for (i = 1; i < (rows.length - 2); i++) { // Comenzamos en 1 para omitir la fila de encabezados y la fila "Total"
+            for (i = 1; i < (rows.length - 1); i++) {
                 shouldSwitch = false;
                 x = parseInt(rows[i].cells[11].innerText); // Puntos actual
                 y = parseInt(rows[i + 1].cells[11].innerText); // Puntos siguiente
@@ -1401,7 +1401,7 @@ function actualizarResultado(partido, resultado) {
     }
 
     actualizarResultado(1, "L");
-   actualizarResultado(2, "");
+   actualizarResultado(2, "V");
    actualizarResultado(3, "");
    actualizarResultado(4, "");
    actualizarResultado(5, "");
