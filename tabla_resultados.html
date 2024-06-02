@@ -1391,28 +1391,38 @@ function actualizarResultado(partido, resultado) {
     ordenarTabla();
 }
 
-    function ordenarTabla() {
-        var table, rows, switching, i, x, y, shouldSwitch;
-        table = document.getElementById("quiniela");
-        switching = true;
-        while (switching) {
-            switching = false;
-            rows = table.rows;
-            for (i = 1; i < (rows.length - 1); i++) {
-                shouldSwitch = false;
-                x = parseInt(rows[i].cells[11].innerText); // Puntos actual
-                y = parseInt(rows[i + 1].cells[11].innerText); // Puntos siguiente
-                if (x < y) {
+ function ordenarTabla() {
+    var table, rows, switching, i, shouldSwitch;
+    table = document.getElementById("quiniela");
+    switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            var x = parseInt(rows[i].cells[11].innerText); // Puntos actual
+            var y = parseInt(rows[i + 1].cells[11].innerText); // Puntos siguiente
+            if (x < y) {
+                shouldSwitch = true;
+                break;
+            } else if (x === y) {
+                var totalGoles = 23; // Número de goles totales en la quiniela
+                var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
+                var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
+                var distancia1 = Math.abs(totalGoles - participante1Goles);
+                var distancia2 = Math.abs(totalGoles - participante2Goles);
+                if (distancia1 > distancia2) {
                     shouldSwitch = true;
                     break;
                 }
             }
-            if (shouldSwitch) {
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); // Mueve la fila hacia arriba
-                switching = true;
-            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); // Mueve la fila hacia arriba
+            switching = true;
         }
     }
+}
 
     actualizarResultado(1, "L");
    actualizarResultado(2, "V");
