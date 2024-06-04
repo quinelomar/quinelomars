@@ -1,1442 +1,484 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QUINIELOMAR'S</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<title>Quiniela</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
     body {
-        background-image: url('cielo 1.jpeg');
-        background-size: 100% 200%;
-        background-position: center center;
-        background-repeat: no-repeat;
+        font-family: 'Arial', sans-serif;
+        background: #f0f2f5;
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
-    .container {
-        position: relative;
-        z-index: 0;
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        border-radius: 10px;
-        margin: 20px auto;
-        max-width: 1000px;
-    }
+
     h1 {
-        text-align: center;
         color: #333;
-        font-family: 'Anton', sans-serif;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-        margin-bottom: 0;
+        margin: 20px 0;
+        font-size: 2em;
     }
-    table {
+
+    .search-container {
+        width: 90%;
+        max-width: 600px;
+        margin: 20px 0;
+    }
+
+    .search-container input {
         width: 100%;
+        padding: 10px 15px;
+        font-size: 1em;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    table {
+        width: 90%;
+        max-width: 1000px;
         border-collapse: collapse;
-        margin-bottom: 10px;
+        background: #fff;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border: 1px solid black; /* Agrega bordes negros a la tabla */
     }
+
     th, td {
-        border: 1px solid #2D2625;
-        padding: 5px;
+        padding: 15px;
         text-align: center;
-        font-size: 12px;
-        color: #333;
+        font-size: 1em;
+        border: 1px solid black; /* Agrega bordes negros a las celdas */
     }
+
     th {
-        background-color: #333;
+        background-color: black; /* Cambia el color de fondo a negro */
         color: #fff;
     }
-    td {
-        background-color: transparent;
-        cursor: pointer;
-        transition: background-color 0.3s;
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
     }
+
     .selected-row {
-        background-color: #ffffff; /* Blanco */
-        border: 2px solid #333; /* Borde oscuro */
-    }
-    .custom-button {
-        display: inline-block;
-        padding: 3px 8px;
-        margin-top: 20px;
-        background-color: #ff7f50; /* Naranja */
-        color: #fff;
-        text-decoration: none;
-        font-family: 'Anton', sans-serif;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-    .custom-button:hover {
-        background-color: #ff6347; /* Naranja más oscuro al hacer hover */
+        background-color: aqua !important;
     }
 
-table {
-    width: 100%;
-    overflow-x: auto;
-    display: block;
-}
+    .resultado-correcto {
+        background-color: #4CAF50; /* Verde para resultado correcto */
+        color: white;
+    }
 
+    /* Estilo para la columna del nombre */
+    th:first-child, td:first-child {
+        min-width: 300px; /* Ancho mínimo de la columna del nombre */
+    }
+
+    @media (max-width: 768px) {
+        th, td {
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        .search-container input {
+            padding: 8px 10px;
+            font-size: 0.9em;
+        }
+    }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>TABLA DE RESULTADOS</h1>
-  <input type="text" id="searchInput" onkeyup="buscarQuiniela()" placeholder="Buscar tu nombre...">
-  <a href="index.html" class="custom-button">QUINIELA</a>
-  <table id="quiniela">
-    <tr>
-      <th>PARTICIPANTE</th>
-      <th>OLYMPIACOS VS FIORENTNA 1-0 </th>
-      <th>MIAMI VS ATLANTA 1-3 </th>
-      <th>MEXICO VS BOLIVIA 1-0</th>
-      <th>COSTA RICA VS URUGUAY 0-0 </th>
-      <th> ROMA VS MILAN 5-2</th>
-      <th>DORTMUND VS MADRID 0-2 </th>
-      <th>PACHUCA VS COLUMBUS CREW 3-0</th>
-      <th> ATALANTA VS FIORENTINA 2-3 </th>
-      <th>INDONESIA VS TANZANIA 0-0 </th>
-      <th>TOTAL GOLES 23 </th>
-      <th>PUNTOS</th>
-    </tr>
-    <tr>
-  <td>Papá de los pollitos</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>22</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Papá de los pollitos</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>18</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Papá de los pollitos</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>19</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>GERARDO TELLEZ RIOS</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>24</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>GERARDO TELLEZ RIOS</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>ABET-70</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>18</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>ABET-70</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>22</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Manuel Cuellar</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Junior 12</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>27</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Bochito</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>27</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cedu</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>23</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cedu</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>24</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cedu</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Nico</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>23</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Rulas</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>21</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Lupita</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>26</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Lupita</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>24</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Lupita</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>MATEO👀</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>23</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>MATEO👀</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>20</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>RODRITOM</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>24</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>RODRITOM</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>RODRITOM</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>27</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Candu</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cande</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>othli</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>27</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Tomas</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>21</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Felipe García</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>21</td>
-  <td>0</tr>
-<tr>
-  <td>Felipe García</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Astridbaby</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>24</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>30</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>29</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>30</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>30</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>26</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>27</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>29</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>29</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>27</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>26</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>24</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Avatar 96</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>26</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Puto</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Puta</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>26</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Homero</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>22</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Homero</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>24</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Homero</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>27</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Jovani Pepe</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>180</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>ARGENIS Y JACQUELIN</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>ARGENIS Y JACQUELIN</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>26</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>ARGENIS Y JACQUELIN</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>23</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Uva suerte</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Uva suerte</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Uva suerte</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>E</td>
-  <td>26</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Uva suerte</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>27</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Uva suerte</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>30</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>E</td>
-  <td>E</td>
-  <td>E</td>
-  <td>29</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cholo</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Cremas mx chihuas</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>28</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Blaxxy</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>Blaxxy</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>CASTILLO CASTILLO JORGE LUIS</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>32</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>CASTILLO CASTILLO JHORCH</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>35</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>CASTILLO CASTILLO PATY</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>30</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>CASTILLO CASTILLO RENNATA</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>CASTILLO CASTILLO TOÑO</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>38</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>CASTILLO CASTILLO RANDY ORTON</td>
-  <td>V</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>25</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>SUEGRO CHAVIRA</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>E</td>
-  <td>15</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>SUEGRO CHAVIRA</td>
-  <td>E</td>
-  <td>L</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>V</td>
-  <td>18</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>RUBEN</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>23</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>RUBEN</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>V</td>
-  <td>L</td>
-  <td>V</td>
-  <td>L</td>
-  <td>L</td>
-  <td>V</td>
-  <td>20</td>
-  <td>0</td>
-</tr>
-<tr>
-  <td>RUBEN</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>E</td>
-  <td>E</td>
-  <td>E</td>
-  <td>L</td>
-  <td>L</td>
-  <td>L</td>
-  <td>19</td>
-  <td>0</td>
-</tr>
-      <tr>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-</tr>
+    <h1>TABLA DE RESULTADOS</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="buscarQuiniela()" placeholder="Buscar por nombre...">
+    </div>
+    <table id="quiniela">
+        <thead>
+            <tr>
+                <th>Nombre del Participante</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>AMERICA VS CHIVAS 3-0</th>
+                <th>Goles Totales 15</th>
+                <th>Total de Puntos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+ <tr>
+                <td>Jugador 1</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>15</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 2</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>200</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 3</td>
+                <td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td>
+                <td>17</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 4</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>16</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 5</td>
+                <td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td>
+                <td>16</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 6</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>14</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 7</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>14</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 8</td>
+                <td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td>
+                <td>16</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 9</td>
+                <td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td><td>E</td>
+                <td>22</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 10</td>
+                <td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td><td>V</td>
+                <td>13</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Jugador 11</td>
+                <td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td><td>L</td>
+                <td>24</td>
+                <td>0</td>
+            </tr>
+            <!-- Agrega más filas según la cantidad de participantes -->
+        </tbody>
+    </table>
+    <script>
+        var participantes = document.querySelectorAll("#quiniela tr");
 
-    <!-- Aquí puedes agregar más filas para más participantes -->
-  </table>
-</div>
-<script>
-    var participantes = document.querySelectorAll("#quiniela tr");
-
- function buscarQuiniela() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("searchInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("quiniela");
-    tr = table.getElementsByTagName("tr");
-    for (i = 1; i < tr.length; i++) { // Comenzamos en 1 para omitir la fila de encabezados
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].classList.add("selected-row");
-                tr[i].scrollIntoView({ behavior: "smooth", block: "center" });
-            } else {
-                tr[i].classList.remove("selected-row");
-            }
-        }
-    }
-}
-
-function actualizarResultado(partido, resultado) {
-    var table = document.getElementById("quiniela");
-    for (var i = 1; i < table.rows.length; i++) {
-        var participante = table.rows[i].cells[0].innerText;
-        if (participante !== "Total") {
-            var cell = table.rows[i].cells[partido];
-            var cellValue = cell.innerText.trim().toUpperCase();
-            var resultadoValue = resultado.trim().toUpperCase();
-            if (cellValue === resultadoValue) {
-                cell.style.backgroundColor = "#4CAF50"; // Verde para resultado correcto
-                var puntosCell = table.rows[i].cells[11];
-                puntosCell.innerText = parseInt(puntosCell.innerText) + 1;
-            }
-        }
-    }
-    ordenarTabla();
-}
-
- function ordenarTabla() {
-    var table, rows, switching, i, shouldSwitch;
-    table = document.getElementById("quiniela");
-    switching = true;
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            var x = parseInt(rows[i].cells[11].innerText); // Puntos actual
-            var y = parseInt(rows[i + 1].cells[11].innerText); // Puntos siguiente
-            if (x < y) {
-                shouldSwitch = true;
-                break;
-            } else if (x === y) {
-                var totalGoles = 23; // Número de goles totales en la quiniela
-                var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
-                var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
-                var distancia1 = Math.abs(totalGoles - participante1Goles);
-                var distancia2 = Math.abs(totalGoles - participante2Goles);
-                if (distancia1 > distancia2) {
-                    shouldSwitch = true;
-                    break;
+        function buscarQuiniela() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("quiniela");
+            tr = table.getElementsByTagName("tr");
+            for (i = 1; i < tr.length; i++) { // Comenzamos en 1 para omitir la fila de encabezados
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].classList.add("selected-row");
+                        tr[i].scrollIntoView({ behavior: "smooth", block: "center" });
+                    } else {
+                        tr[i].classList.remove("selected-row");
+                    }
                 }
             }
         }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); // Mueve la fila hacia arriba
-            switching = true;
+
+        function actualizarResultado(partido, resultado) {
+            var table = document.getElementById("quiniela");
+            for (var i = 1; i < table.rows.length; i++) {
+                var participante = table.rows[i].cells[0].innerText;
+                if (participante !== "Total") {
+                    var cell = table.rows[i].cells[partido];
+                    var cellValue = cell.innerText.trim().toUpperCase();
+                    var resultadoValue = resultado.trim().toUpperCase();
+                    if (cellValue === resultadoValue) {
+                        cell.classList.add("resultado-correcto");
+                        var puntosCell = table.rows[i].cells[11];
+                        puntosCell.innerText = parseInt(puntosCell.innerText) + 1;
+                    }
+                }
+            }
+            ordenarTabla();
         }
-    }
-}
 
-    actualizarResultado(1, "L");
-   actualizarResultado(2, "V");
-   actualizarResultado(3, "L");
-   actualizarResultado(4, "E");
-   actualizarResultado(5, "L");
-   actualizarResultado(6, "V");
-  actualizarResultado(7, "L");
-  actualizarResultado(8, "V");
-   actualizarResultado(9, "E");
+        function ordenarTabla() {
+            var table, rows, switching, i, shouldSwitch;
+            table = document.getElementById("quiniela");
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    var x = parseInt(rows[i].cells[11].innerText); // Puntos actual
+                    var y = parseInt(rows[i + 1].cells[11].innerText); // Puntos siguiente
+                    if (x < y) {
+                        shouldSwitch = true;
+                        break;
+                    } else if (x === y) {
+                        var totalGoles = 15; // Número de goles totales en la quiniela
+                        var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
+                        var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
+                        var distancia1 = Math.abs(totalGoles - participante1Goles);
+                        var distancia2 = Math.abs(totalGoles - participante2Goles);
+                        if (distancia1 > distancia2) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); // Mueve la fila hacia arriba
+                    switching = true;
+                }
+            }
+        }
 
-    // Puedes agregar más funciones y personalizaciones según tus necesidades
-
-</script>
-
+        actualizarResultado(1, "E");
+        actualizarResultado(2, "E");
+        actualizarResultado(3, "L");
+        actualizarResultado(4, "E");
+        actualizarResultado(5, "L");
+        actualizarResultado(6, "E");
+        actualizarResultado(7, "V");
+        actualizarResultado(8, "L");
+        actualizarResultado(9, "E");
+    </script>
 </body>
-</html> 
+</html>
