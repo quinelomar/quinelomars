@@ -7,6 +7,16 @@
     <title>Quiniela</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
+        /* Estilos para el fondo semitransparente */
+        .transparent-bg {
+            background-color: rgba(255, 255, 255, 0.8); /* Gris medio semitransparente */
+            padding: 20px; /* Espaciado interior */
+            border-radius: 10px; /* Bordes redondeados */
+            margin: 20px; /* Margen exterior */
+            position: relative; /* Añadido para posicionar el logo */
+            z-index: 1; /* Asegura que el fondo blanco esté encima de la imagen de fondo */
+        }
+
         /* Estilos comunes para th y td */
         th, td {
             padding: 15px;
@@ -45,14 +55,26 @@
             background-position: center; /* Posición de la imagen */
         }
 
-   h1 {
-    color:  #000000;
-    margin: 20px 0;
-    font-size: 3em; /* Aumenta el tamaño del título */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center; /* Centra el título */
-}
+        h1 {
+            color:  #000000;
+            margin: 20px 0;
+            font-size: 3em; /* Aumenta el tamaño del título */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center; /* Centra el título */
+        }
+
+        #logo {
+            position: absolute;
+            top: 10px; /* Ajusta la distancia desde arriba */
+            right: 250px; /* Ajusta la distancia desde la derecha */
+            width: 200px; /* Ajusta el ancho de la imagen */
+            height: 200px; /* Ajusta la altura de la imagen */
+            background-image: url('fondo 1.png'); /* Ruta a tu imagen */
+            background-size: contain; /* Ajusta el tamaño de la imagen para que quepa en el div */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            z-index: 2; /* Asegura que el logo esté encima del fondo blanco */
+        }
 
         .search-container {
             width: 100%;
@@ -62,10 +84,10 @@
         }
 
         .search-container input {
-            width: 85%;
+            width: 90%;
             padding: 12px 15px;
             font-size: 1.2em;
-            border: 2px solid #ddd;
+            border: 2px solid #000;
             border-radius: 30px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
@@ -79,9 +101,9 @@
             width: 100%;
             max-width: 1000px;
             border-collapse: collapse;
-            background: #fff;
+            background: none; /* Quitar el fondo gris */
             margin-bottom: 20px;
-            border-radius: 10px;
+            border: 2px solid #ddd; /* Remarcar los bordes un poco más */
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border: 1px solid #ddd;
@@ -94,18 +116,14 @@
             letter-spacing: 1px;
         }
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
         tr:hover {
             background-color: #f1f1f1;
         }
 
-       .selected-row {
-    background-color: aqua !important;
-    outline: 4px solid black; /* Añade un borde negro de 2px alrededor de la celda */
-}
+        .selected-row {
+            background-color: aqua !important;
+            outline: 2px solid black; /* Añade un borde negro de 2px alrededor de la celda */
+        }
 
         .resultado-correcto {
             background-color: #4CAF50;
@@ -144,12 +162,14 @@
     </style>
 </head>
 <body>
-    <h1>Tabla de Resultados</h1>
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="buscarQuiniela()" placeholder="Buscar por nombre...">
-    </div>
-    <table id="quiniela" aria-label="Tabla de resultados de la quiniela">
-        <thead>
+    <div id="logo"></div> <!-- Logo en la parte derecha del fondo -->
+    <div class="transparent-bg"> <!-- Div con fondo transparente -->
+        <h1>Tabla de Resultados</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="buscarQuiniela()" placeholder="Buscar por nombre...">
+        </div>
+        <table id="quiniela" aria-label="Tabla de resultados de la quiniela">
+            <thead>
             <tr>
                 <th>Nombre del Participante</th>
                 <th>AMERICA VS CHIVAS 3-0</th>
