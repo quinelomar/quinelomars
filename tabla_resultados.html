@@ -97,21 +97,36 @@
             min-width: 200px; /* Ancho mínimo de la columna del nombre */
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.5em; /* Tamaño de fuente más pequeño para el título */
-            }
-
-            .search-container input {
-                padding: 8px 10px; /* Reducir el padding del cuadro de búsqueda */
-                font-size: 0.8em; /* Reducir el tamaño de fuente del cuadro de búsqueda */
-            }
-
-            th, td {
-                padding: 10px;
-                font-size: 0.9em;
-            }
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.5em; /* Tamaño de fuente más pequeño para el título */
         }
+
+        .search-container input {
+            padding: 8px 10px; /* Reducir el padding del cuadro de búsqueda */
+            font-size: 0.8em; /* Reducir el tamaño de fuente del cuadro de búsqueda */
+        }
+
+        table {
+            overflow-x: auto;
+            display: block;
+            font-size: 0.8em; /* Reducir el tamaño de fuente de la tabla */
+            width: 100%; /* Ajustar el ancho de la tabla al 100% */
+            max-width: 100%; /* Establecer el ancho máximo de la tabla */
+            border-collapse: collapse; /* Colapsar los bordes de la tabla */
+        }
+
+        th, td {
+            min-width: 60px; /* Ancho mínimo de las celdas */
+            padding: 8px; /* Reducir el padding de las celdas */
+            text-align: center; /* Centrar el texto en las celdas */
+            border: 1px solid #ddd; /* Añadir bordes a las celdas */
+        }
+
+        th:first-child, td:first-child {
+            min-width: 120px; /* Ancho mínimo de la primera celda */
+        }
+    }
 </style>
 </head>
 <body>
