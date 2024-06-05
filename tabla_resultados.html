@@ -97,19 +97,20 @@
             min-width: 200px; /* Ancho mínimo de la columna del nombre */
         }
 
- @media (max-width: 768px) {
+  @media (max-width: 768px) {
         table {
             overflow-x: auto;
             display: block;
+            font-size: 0.8em; /* Reducir el tamaño de fuente */
         }
 
         th, td {
-            min-width: 80px;
-            padding: 10px;
+            min-width: 60px;
+            padding: 8px; /* Reducir el padding */
         }
 
         th:first-child, td:first-child {
-            min-width: 150px;
+            min-width: 120px;
         }
     }
 </style>
