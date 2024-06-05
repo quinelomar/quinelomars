@@ -135,30 +135,44 @@
         }
 
         @media (max-width: 768px) {
-            /* Estilos para pantallas pequeñas */
-            h1 { font-size: 0.5em; }
-            .search-container input {
-                padding: 8px 10px;
-                font-size: 0.8em;
-            }
-            table {
-                overflow-x: auto;
-                display: block;
-                font-size: 0.4em;
-                width: 100%;
-                max-width: 100%;
-                border-collapse: collapse;
-            }
-            th, td {
-                min-width: 30px;
-                padding: 4px;
-                text-align: center;
-                border: 1px solid #ddd;
-            }
-            th:first-child, td:first-child {
-                min-width: 120px;
-            }
-        }
+    /* Estilos para pantallas pequeñas */
+    h1 { font-size: 0.5em; }
+    .search-container input {
+        padding: 8px 10px;
+        font-size: 0.8em;
+    }
+    table {
+        overflow-x: auto;
+        display: block;
+        font-size: 0.4em;
+        width: 100%;
+        max-width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        min-width: 30px;
+        padding: 4px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+    th:first-child, td:first-child {
+        min-width: 120px;
+    }
+
+    /* Ajustes para el fondo blanco */
+    .transparent-bg {
+        background-color: rgba(255, 255, 255, 0.8); /* Gris medio semitransparente */
+        padding: 20px; /* Espaciado interior */
+        border-radius: 10px; /* Bordes redondeados */
+        margin: 20px auto; /* Margen exterior centrado */
+        width: 90%; /* Ancho del contenedor */
+    }
+
+    /* Ajustes para el logo */
+    #logo {
+        display: none; /* Ocultar el logo en dispositivos móviles */
+    }
+}
     </style>
 </head>
 <body>
