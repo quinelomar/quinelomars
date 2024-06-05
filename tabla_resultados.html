@@ -97,22 +97,21 @@
             min-width: 200px; /* Ancho mínimo de la columna del nombre */
         }
 
-  @media (max-width: 768px) {
-        table {
-            overflow-x: auto;
-            display: block;
-            font-size: 0.4em; /* Reducir el tamaño de fuente */
-        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em; /* Tamaño de fuente más pequeño para el título */
+            }
 
-        th, td {
-            min-width: 30px;
-            padding: 3px; /* Reducir el padding */
-        }
+            .search-container input {
+                padding: 8px 10px; /* Reducir el padding del cuadro de búsqueda */
+                font-size: 0.8em; /* Reducir el tamaño de fuente del cuadro de búsqueda */
+            }
 
-        th:first-child, td:first-child {
-            min-width: 80px;
+            th, td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
         }
-    }
 </style>
 </head>
 <body>
