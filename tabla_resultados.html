@@ -193,12 +193,12 @@
                 <th>MEXICO VS URUGUAY 0-4 </th>
                 <th>PAISES BAJOS VS CANADA 4-0</th>
                 <th>HONDURAS VS CUBA 3-1 </th>
-                <th>NIGERIA VS SUDAFRICA</th>
-                <th>INGLATERRA VS ISLANDIA</th>
+                <th>NIGERIA VS SUDAFRICA 1-1 </th>
+                <th>INGLATERRA VS ISLANDIA 0-1</th>
                 <th>PERU VS PARAGUAY</th>
-                <th>POLONIA VS UCRANIA</th>
-                <th>ALEMANIA VS GRECIA</th>
-                <th>Goles Totales 15</th>
+                <th>POLONIA VS UCRANIA 3-1 </th>
+                <th>ALEMANIA VS GRECIA 2-1 </th>
+                <th>Goles Totales 25</th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -642,7 +642,7 @@ function ordenarTabla() {
                 shouldSwitch = true;
                 break;
             } else if (x === y) {
-                var totalGoles =11; // Número de goles totales en la quiniela
+                var totalGoles =25; // Número de goles totales en la quiniela
                 var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
                 var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
                 var distancia1 = Math.abs(totalGoles - participante1Goles);
@@ -664,11 +664,11 @@ actualizarResultado(1, "L");
 actualizarResultado(2, "V");
 actualizarResultado(3, "L");
 actualizarResultado(4, "L");
-actualizarResultado(5, "");
-actualizarResultado(6, "");
+actualizarResultado(5, "E");
+actualizarResultado(6, "V");
 actualizarResultado(7, "");
-actualizarResultado(8, "");
-actualizarResultado(9, "");
+actualizarResultado(8, "L");
+actualizarResultado(9, "L");
     </script>
 </body>
 </html>
