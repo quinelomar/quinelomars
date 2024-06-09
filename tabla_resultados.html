@@ -193,12 +193,12 @@
                 <th>PORTUGAL VS CROACIA 1-2</th>
                 <th>DINAMARCA VS NORUEGA 3-1</th>
                 <th>USA VS COLOMBIA 1-5 </th>
-                <th>MEXICO VS BRASIL </th>
+                <th>MEXICO VS BRASIL 2-3 </th>
                 <th>FRANCIA VS CANADA</th>
                 <th>ARGENTINA VS ECUADOR </th>
                 <th></th>
                 <th></th>
-                <th>Goles Totales 16 </th>
+                <th>Goles Totales 21 </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -480,7 +480,7 @@ function ordenarTabla() {
                 shouldSwitch = true;
                 break;
             } else if (x === y) {
-                var totalGoles  =15; // Número de goles totales en la quiniela
+                var totalGoles  =21; // Número de goles totales en la quiniela
                 var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
                 var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
                 var distancia1 = Math.abs(totalGoles - participante1Goles);
@@ -502,7 +502,7 @@ actualizarResultado(1, "V");
 actualizarResultado(2, "V");
 actualizarResultado(3, "L");
 actualizarResultado(4, "V");
-actualizarResultado(5, "");
+actualizarResultado(5, "V");
 actualizarResultado(6, "");
 actualizarResultado(7, "");
 actualizarResultado(8, ".");
