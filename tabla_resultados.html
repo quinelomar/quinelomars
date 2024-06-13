@@ -189,8 +189,8 @@
             <thead>
             <tr>
                 <th>Nombre del Participante</th>
-                <th>USA VS BRASIL</th>
-                <th>ECUADOR VS BOLIVIA</th>
+                <th>USA VS BRASIL 1-1</th>
+                <th>ECUADOR VS BOLIVIA 3-1 </th>
                 <th>ARGENTINA VS GUATEMALA</th>
                 <th>EL SALVADOR VS PERU</th>
                 <th>ALEMANIA VS ESCOCIA</th>
@@ -632,7 +632,7 @@ function ordenarTabla() {
                 shouldSwitch = true;
                 break;
             } else if (x === y) {
-                var totalGoles  =; // Número de goles totales en la quiniela
+                var totalGoles  =6; // Número de goles totales en la quiniela
                 var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
                 var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
                 var distancia1 = Math.abs(totalGoles - participante1Goles);
@@ -650,8 +650,8 @@ function ordenarTabla() {
     }
 }
 
-actualizarResultado(1, "");
-actualizarResultado(2, "");
+actualizarResultado(1, "E");
+actualizarResultado(2, "L");
 actualizarResultado(3, "");
 actualizarResultado(4, "");
 actualizarResultado(5, "");
