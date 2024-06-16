@@ -189,16 +189,16 @@
             <thead>
             <tr>
                 <th>Nombre del Participante</th>
-                <th>USA VS BRASIL 1-1</th>
-                <th>ECUADOR VS BOLIVIA 3-1 </th>
-                <th>ARGENTINA VS GUATEMALA 4-1</th>
-                <th>EL SALVADOR VS PERU 0-1</th>
-                <th>ALEMANIA VS ESCOCIA 5-1</th>
-                <th>COLOMBIA VS BOLIVIA 3-0</th>
-                <th>HUNGRIA VS SUIZA 1-3</th>
-                <th>ESPAÑA VS CROACIA 3-0 </th>
-                <th>ITALIA VS ALBANIA 2-1 </th>
-                <th>Goles Totales 31</th>
+                <th>POLONIA VS PAISES BAJOS</th>
+                <th>ESLOVENIA VS DINAMARCA </th>
+                <th>SERBIA VS INGLATERRA </th>
+                <th>ECUADOR VS HONDURAS</th>
+                <th>PANAMA VS PARAGUAY</th>
+                <th>REAL OVIEDO VS ESPANYOL</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Goles Totales </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -500,7 +500,7 @@ function ordenarTabla() {
                 shouldSwitch = true;
                 break;
             } else if (x === y) {
-                var totalGoles  =31; // Número de goles totales en la quiniela
+                var totalGoles  =; // Número de goles totales en la quiniela
                 var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
                 var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
                 var distancia1 = Math.abs(totalGoles - participante1Goles);
@@ -518,15 +518,15 @@ function ordenarTabla() {
     }
 }
 
-actualizarResultado(1, "E");
-actualizarResultado(2, "L");
-actualizarResultado(3, "L");
-actualizarResultado(4, "V");
-actualizarResultado(5, "L");
-actualizarResultado(6, "L");
-actualizarResultado(7, "V");
-actualizarResultado(8, "L");
-actualizarResultado(9, "L");
+actualizarResultado(1, "");
+actualizarResultado(2, "");
+actualizarResultado(3, "");
+actualizarResultado(4, "");
+actualizarResultado(5, "");
+actualizarResultado(6, "");
+actualizarResultado(7, "");
+actualizarResultado(8, "");
+actualizarResultado(9, "");
     </script>
 </body>
 </html>
