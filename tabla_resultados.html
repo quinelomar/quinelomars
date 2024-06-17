@@ -193,7 +193,7 @@
                 <th>ESLOVENIA VS DINAMARCA 1-1</th>
                 <th>SERBIA VS INGLATERRA 0-1</th>
                 <th>ECUADOR VS HONDURAS 2-1 </th>
-                <th>PANAMA VS PARAGUAY</th>
+                <th>PANAMA VS PARAGUAY 0-1</th>
                 <th>REAL OVIEDO VS ESPANYOL 1-0</th>
                 <th></th>
                 <th></th>
@@ -508,7 +508,7 @@ function ordenarTabla() {
                 shouldSwitch = true;
                 break;
             } else if (x === y) {
-                var totalGoles  =10; // Número de goles totales en la quiniela
+                var totalGoles  =11; // Número de goles totales en la quiniela
                 var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
                 var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
                 var distancia1 = Math.abs(totalGoles - participante1Goles);
@@ -530,7 +530,7 @@ actualizarResultado(1, "V");
 actualizarResultado(2, "E");
 actualizarResultado(3, "V");
 actualizarResultado(4, "L");
-actualizarResultado(5, "");
+actualizarResultado(5, "V");
 actualizarResultado(6, "L");
 actualizarResultado(7, ".");
 actualizarResultado(8, ".");
