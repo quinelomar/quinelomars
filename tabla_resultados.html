@@ -449,8 +449,8 @@
             <!-- Agrega más filas según la cantidad de participantes -->
         </tbody>
     </table>
-    <script>
-var participantes = document.querySelectorAll("#quiniela tr");
+   <script>
+       var participantes = document.querySelectorAll("#quiniela tr");
 
 function buscarQuiniela() {
     var input = document.getElementById("searchInput");
@@ -485,79 +485,71 @@ function buscarQuiniela() {
         }
     }
 }
-
-function actualizarResultado(partido, resultado) {
+function ordenarPorResultadosCorrectos() {
     var table = document.getElementById("quiniela");
-    for (var i = 1; i < table.rows.length; i++) {
-        var participante = table.rows[i].cells[0].innerText;
-        if (participante !== "Total") {
-            var cell = table.rows[i].cells[partido];
-            var cellValue = cell.innerText.trim().toUpperCase();
-            var resultadoValue = resultado.trim().toUpperCase();
-            if (cellValue === resultadoValue) {
-                cell.classList.add("resultado-correcto");
-                var puntosCell = table.rows[i].cells[11];
-                puntosCell.innerText = parseInt(puntosCell.innerText) + 1;
-            }
-        }
-    }
-    colorPuntos();
-    ordenarTabla();
+    var rows = Array.from(table.querySelectorAll('tr')); // Obtener todas las filas de la tabla como un array
+
+    // Ordenar las filas basadas en el número de resultados correctos (segunda columna en adelante)
+    rows.sort(function(rowA, rowB) {
+        var puntosA = parseInt(rowA.cells[rowA.cells.length - 1].textContent); // Obtener puntos de la última celda
+        var puntosB = parseInt(rowB.cells[rowB.cells.length - 1].textContent); // Obtener puntos de la última celda
+        
+        // Orden descendente (de mayor a menor)
+        return puntosB - puntosA;
+    });
+
+    // Reordenar las filas en la tabla según el nuevo orden
+    rows.forEach(function(row) {
+        table.appendChild(row); // Agregar la fila al final de la tabla (moverla)
+    });
 }
 
-function colorPuntos() {
-    var table = document.getElementById("quiniela");
-    for (var i = 1; i < table.rows.length; i++) {
-        var puntosCell = table.rows[i].cells[11];
-        var puntos = parseInt(puntosCell.innerText);
-        puntosCell.className = "puntos-" + puntos;
-    }
-}
+// Llamar a la función para ordenar automáticamente al cargar la página
+window.addEventListener('DOMContentLoaded', function() {
+    ordenarPorResultadosCorrectos();
+});
 
-colorPuntos(); // Llamar a la función al cargar la página para aplicar colores inicialmente
-
-function ordenarTabla() {
-    var table, rows, switching, i, shouldSwitch;
-    table = document.getElementById("quiniela");
-    switching = true;
-    while (switching) {
-        switching = false;
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            var x = parseInt(rows[i].cells[11].innerText); // Puntos actual
-            var y = parseInt(rows[i + 1].cells[11].innerText); // Puntos siguiente
-            if (x < y) {
-                shouldSwitch = true;
-                break;
-            } else if (x === y) {
-                var totalGoles  =; // Número de goles totales en la quiniela
-                var participante1Goles = parseInt(rows[i].cells[10].innerText); // Goles del participante 1
-                var participante2Goles = parseInt(rows[i + 1].cells[10].innerText); // Goles del participante 2
-                var distancia1 = Math.abs(totalGoles - participante1Goles);
-                var distancia2 = Math.abs(totalGoles - participante2Goles);
-                if (distancia1 > distancia2) {
-                    shouldSwitch = true;
-                    break;
+        function actualizarResultado(event, columna) {
+            var resultado = event.target.value.toUpperCase();
+            var table = document.getElementById("quiniela");
+            var tr = table.getElementsByTagName("tr");
+            
+            for (var i = 1; i < tr.length; i++) {
+                var td = tr[i].getElementsByTagName("td")[columna];
+                if (td) {
+                    td.textContent = resultado;
                 }
             }
         }
-        if (shouldSwitch) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]); // Mueve la fila hacia arriba
-            switching = true;
-        }
-    }
-}
 
-actualizarResultado(1, "");
-actualizarResultado(2, "");
-actualizarResultado(3, "");
-actualizarResultado(4, "");
-actualizarResultado(5, "");
-actualizarResultado(6, "");
-actualizarResultado(7, "");
-actualizarResultado(8, "");
-actualizarResultado(9, "");
+        // Función para contar los puntos correctos
+        function contarPuntos() {
+            var table = document.getElementById("quiniela");
+            var tr = table.getElementsByTagName("tr");
+            var resultadosCorrectos = ["V", "E", "L", "V", "E", "V", "L", "", ""]; // Ejemplo de resultados correctos
+
+            for (var i = 1; i < tr.length; i++) {
+                var tds = tr[i].getElementsByTagName("td");
+                var puntos = 0;
+
+                for (var j = 1; j <= 9; j++) { // Suponiendo que las 7 primeras columnas contienen los resultados de los partidos
+                    if (tds[j] && tds[j].textContent.trim().toUpperCase() === resultadosCorrectos[j - 1]) {
+                        tds[j].classList.add("resultado-correcto");
+                        puntos++;
+                    } else {
+                        tds[j].classList.remove("resultado-correcto");
+                    }
+                }
+
+                // Asigna el valor de puntos a la última columna (ajustar índice según sea necesario)
+                tds[11].textContent = puntos;
+                // Aplicar clase CSS según los puntos
+                tds[11].className = "puntos-" + puntos;
+            }
+        }
+        // Llamar a la función para contar los puntos
+        contarPuntos();
+
     </script>
 </body>
 </html>
