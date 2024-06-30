@@ -193,8 +193,8 @@
             <thead>
             <tr>
                 <th>Nombre del Participante</th>
-                <th>ARGENTINA VS PERU</th>
-                <th>CANADA VS CHILE</th>
+                <th>ARGENTINA VS PERU 2-0 </th>
+                <th>CANADA VS CHILE 0-0 </th>
                 <th>JAMAICA VS VENEZUELA</th>
                 <th>MEXICO VS ECUADOR</th>
                 <th>INGLATERRA VS ESLOVAQUIA</th>
@@ -202,7 +202,7 @@
                 <th>AMERICA VS TIGRES</th>
                 <th></th>
                 <th></th>
-                <th>Goles Totales </th>
+                <th>Goles Totales 2 </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -526,7 +526,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["", "", "", "", "", "", "", ".", "."]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["L", "E", "", "", "", "", "", ".", "."]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
