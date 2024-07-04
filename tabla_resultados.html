@@ -193,8 +193,8 @@
             <thead>
             <tr>
                 <th>Nombre del Participante</th>
-                <th>COLUMBUS VS NASHVILLE</th>
-                <th>CHARLOTTE VS MIAMI</th>
+                <th>COLUMBUS VS NASHVILLE 2-0</th>
+                <th>CHARLOTTE VS MIAMI 1-2</th>
                 <th>ARGENTINA VS ECUADOR</th>
                 <th>LA GALAXY VS LAFC</th>
                 <th>VENEZUELA CANADA</th>
@@ -202,7 +202,7 @@
                 <th>PUEBLA VS SANTOS</th>
                 <th>QUERETARO VS TIJUANA</th>
                 <th>JUAREZ VS ATLAS</th>
-                <th>Goles Totales </th>
+                <th>Goles Totales 5 </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -455,7 +455,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["", "", "", "", "", "", "", "", ""]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["L", "V", "", "", "", "", "", "", ""]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
