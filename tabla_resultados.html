@@ -192,17 +192,17 @@
         <table id="quiniela" aria-label="Tabla de resultados de la quiniela">
             <thead>
             <tr>
-                <th>Nombre del Participante</th>
-                <th>AMERICA VS QUERETARO</th>
-                <th>MAZATLAN VS SAN LUIS </th>
-                <th>TIJUANA VS GUADALAJARA</th>
-                <th>ATLAS VS TIGRES</th>
+                <th>Nombre del Participante </th>
+                <th>AMERICA VS QUERETARO 3-1</th>
+                <th>MAZATLAN VS SAN LUIS 2-2 </th>
+                <th>TIJUANA VS GUADALAJARA 4-2</th>
+                <th>ATLAS VS TIGRES 1-1</th>
                 <th>PALMEIRAS VS ATLETICO G 3-1</th>
                 <th>CRICIUMA VS FLUMINENSE 1-1 </th>
                 <th>FLAMENGO VS FORTALEZA 1-2</th>
                 <th>ATLETICO M VS SAO PAULO 2-1</th>
                 <th>VITORIA VS BOTAFOGO 0-1 </th>
-                <th>Goles Totales 13 </th>
+                <th>Goles Totales 29     </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -272,7 +272,7 @@
   <td>E</td><td>L</td><td>L</td><td>E</td><td>V</td><td>L</td><td>V</td><td>V</td><td>V</td><td>28</td><td>0</td>
 </tr>
 <tr>
-  <td>Silvia</td>
+  <td>cesu</td>
   <td>L</td><td>L</td><td>L</td><td>V</td><td>E</td><td>L</td><td>L</td><td>L</td><td>V</td><td>20</td><td>0</td>
 </tr>
 <tr>
@@ -479,7 +479,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["", "", "", "", "L", "E", "V", "L", "V"]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["L", "E", "L", "E", "L", "E", "V", "L", "V"]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
