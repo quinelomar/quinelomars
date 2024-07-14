@@ -193,16 +193,16 @@
             <thead>
             <tr>
                 <th>Nombre del Participante </th>
-                <th>CANADA VS URUGUAY</th>
-                <th>LEON VS PACHUCA </th>
-                <th>NECAXA VS PUEBLA</th>
-                <th>TOLUCA VS JUAREZ</th>
-                <th>SANTOS VS PUMAS</th>
+                <th>CANADA VS URUGUAY 2-2 </th>
+                <th>LEON VS PACHUCA 0-0 </th>
+                <th>NECAXA VS PUEBLA 4-1 </th>
+                <th>TOLUCA VS JUAREZ 3-2 </th>
+                <th>SANTOS VS PUMAS 1-1</th>
                 <th>MONTERREY VS CRUZ AZUL </th>
                 <th>ESPAÑA VS INGLATERRA</th>
                 <th>ARGENTINA VS COLOMBIA</th>
                 <th> </th>
-                <th>Goles Totales  </th>
+                <th>Goles Totales 16  </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -555,7 +555,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["", "", "", "", "", "", "", "", "."]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["E", "E", "L", "L", "E", "", "", "", "."]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
