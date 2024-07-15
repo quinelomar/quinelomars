@@ -198,11 +198,11 @@
                 <th>NECAXA VS PUEBLA 4-1 </th>
                 <th>TOLUCA VS JUAREZ 3-2 </th>
                 <th>SANTOS VS PUMAS 1-1</th>
-                <th>MONTERREY VS CRUZ AZUL </th>
-                <th>ESPAÑA VS INGLATERRA</th>
-                <th>ARGENTINA VS COLOMBIA</th>
+                <th>MONTERREY VS CRUZ AZUL 0-4 </th>
+                <th>ESPAÑA VS INGLATERRA 2-1</th>
+                <th>ARGENTINA VS COLOMBIA 0-0 </th>
                 <th> </th>
-                <th>Goles Totales 16  </th>
+                <th>Goles Totales 23  </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -555,7 +555,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["E", "E", "L", "L", "E", "V", "", "", "."]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["E", "E", "L", "L", "E", "V", "E", "E", "."]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
