@@ -195,14 +195,14 @@
                 <th>Nombre del Participante </th>
                 <th>PUMAS VS AUSTIN FC 2-3</th>
                 <th>LAFC VS TIJUANA 3-0 </th>
-                <th>DYNAMO VS ATLAS</th>
-                <th>NEW ENGLAND VS MAZATLAN</th>
-                <th>PUEBLA VS MIAMI</th>
-                <th>CHIVAS VS SAN JOSE</th>
-                <th>M.CITY VS MILAN</th>
+                <th>DYNAMO VS ATLAS 0-1 </th>
+                <th>NEW ENGLAND VS MAZATLAN 1-0</th>
+                <th>PUEBLA VS MIAMI 0-2</th>
+                <th>CHIVAS VS SAN JOSE 1-1 </th>
+                <th>M.CITY VS MILAN 2-3 </th>
                 <th>NEW YORK VS QUERETARO </th>
                 <th> LEON VS TIMBERS </th>
-                <th>Goles Totales  8 </th>
+                <th>Goles Totales  19 </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -500,7 +500,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["V", "L", "", "", "", "", "", "", ""]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["V", "L", "V", "L", "V", "E", "V", "", ""]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
