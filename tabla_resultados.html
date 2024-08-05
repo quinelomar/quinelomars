@@ -198,11 +198,11 @@
                 <th>TIGRES VS MIAMI 2-1</th>
                 <th>MONTERREY VS PUMAS 1-1</th>
                 <th>VANCOUVER VS TIJUANA 3-1</th>
-                <th>PHILADELPHIA VS CRUZ AZUL </th>
-                <th>CHIVAS VS GALAXY</th>
-                <th>PACHUCA VS TORNTO </th>
-                <th>ORLANDO VS SAN LUIS </th>
-                <th>Goles Totales 16 </th>
+                <th>PHILADELPHIA VS CRUZ AZUL 1-1 </th>
+                <th>CHIVAS VS GALAXY 2-2</th>
+                <th>PACHUCA VS TORNTO 1-2 </th>
+                <th>ORLANDO VS SAN LUIS 1-1 </th>
+                <th>Goles Totales 27 </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -533,7 +533,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["L", "L", "L", "E", "L", "", "", "", ""]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["L", "L", "L", "E", "L", "E", "E", "V", "E"]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
