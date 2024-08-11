@@ -193,16 +193,16 @@
             <thead>
             <tr>
                 <th>Nombre del Participante </th>
-                <th> DC UNITED VS MAZATLAN</th>
-                <th>CINCINNATI VS SANTOS</th>
-                <th>ORLANDO VS CRUZX AZUL</th>
-                <th>TOLUCA VS DYNAMO </th>
-                <th>JUAREZ VS COLORADO </th>
-                <th>AMERICA VS ATLAS </th>
-                <th>TOTTENHAM VS BAYERN M</th>
+                <th> DC UNITED VS MAZATLAN 1-2</th>
+                <th>CINCINNATI VS SANTOS 1-1</th>
+                <th>ORLANDO VS CRUZ AZUL 0-0 </th>
+                <th>TOLUCA VS DYNAMO 2-2 </th>
+                <th>JUAREZ VS COLORADO 2-3 </th>
+                <th>AMERICA VS ATLAS 2-1 </th>
+                <th>TOTTENHAM VS BAYERN M 2-3</th>
                 <th>ATLETICO DE MADRID VS JUVENTUS </th>
                 <th>CHELSEA VS INTER </th>
-                <th>Goles Totales </th>
+                <th>Goles Totales 22 </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -476,7 +476,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["", "", "", "", "", "", "", "", ""]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["V", "E", "E", "E", "V", "L", "V", "", ""]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
