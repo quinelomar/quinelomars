@@ -200,9 +200,9 @@
                 <th>JUAREZ VS COLORADO 2-3 </th>
                 <th>AMERICA VS ATLAS 2-1 </th>
                 <th>TOTTENHAM VS BAYERN M 2-3</th>
-                <th>ATLETICO DE MADRID VS JUVENTUS </th>
-                <th>CHELSEA VS INTER </th>
-                <th>Goles Totales 22 </th>
+                <th>ATLETICO DE MADRID VS JUVENTUS 2-0 </th>
+                <th>CHELSEA VS INTER 1-1 </th>
+                <th>Goles Totales 26 </th>
                 <th>Total de Puntos</th>
             </tr>
         </thead>
@@ -476,7 +476,7 @@ window.addEventListener('DOMContentLoaded', function() {
         function contarPuntos() {
             var table = document.getElementById("quiniela");
             var tr = table.getElementsByTagName("tr");
-            var resultadosCorrectos = ["V", "E", "E", "E", "V", "L", "V", "", ""]; // Ejemplo de resultados correctos
+            var resultadosCorrectos = ["V", "E", "E", "E", "V", "L", "V", "L", "E"]; // Ejemplo de resultados correctos
 
             for (var i = 1; i < tr.length; i++) {
                 var tds = tr[i].getElementsByTagName("td");
