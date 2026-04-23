@@ -1,393 +1,157 @@
 <!DOCTYPE html>
-<html lang="en" translate="no">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QUINIELOMAR'S</title>
-<meta property="og:image" content="https://raw.githubusercontent.com/quinelomar/quinelomars/main/fondo%201.png">
-<meta property="og:image:width" content="1">
-<meta property="og:image:height" content="1"> 
-<link rel="icon" type="image/png" href="fondo 1.png"> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
+<title>RIFA MUNDIAL - QUINIELOMAR'S</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <style>
-    body {
-        background-image: url('cielo 1.jpeg');
-        background-size: 100% 200%;
-        background-position: center center;
-        background-repeat: no-repeat;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        position: relative; /* Se agrega posición relativa al contenedor */
-        z-index: 0; /* Asegura que el contenido esté por encima del fondo */
-        background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco traslúcido */
-        padding: 1px; /* Espaciado interior para que el contenido no toque los bordes */
-        border-radius: 10px; /* Bordes redondeados */
-        margin: 20px; /* Margen para separar del borde del navegador */
-    }
-    h1 {
-        text-align: center;
-        color: #333;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-        margin-bottom: 0 px;
-    }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 10px;
-        max-width: 100%;
-    }
-    th, td {
-        border: 1px solid #2D2625;
-        padding: 0px;
-        text-align: center;
-        font-size: 10px;
-        color: #333;
-    }
-    th {
-        background-color: #333;
-        color: #fff;
-    }
-    td {
-        background-color: transparent;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    td.selected {
-        background-color: #ff3333;
-        color: white;
-        font-weight: bold;
-    }
-    .input-field {
-        margin-bottom: 20px;
-    }
-    input[type="text"], input[type="number"] {
-        width: 100%;
-        padding: 7px;
-        box-sizing: border-box;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
-    .btn-container {
-        text-align: center;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: space-between;
-    }
-    .btn-container-whatsapp {
-        text-align: center;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: flex-start;
-    }
-    .btn {
-        padding: 5px 5px;
-        margin: 0;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        font-size: 13px;
-        transition: background-color 0.3s;
-        flex-grow: 1;
-    }
-    .btn-quiniela {
-        background-color: #fbbc04;
-        color: #333;
-        width: 100px;
-    }
-    .btn-limpiar {
-        background-color: #f44336;
-        color: white;
-        width: 100px;
-        margin-right: 10px;
-    }
-    .btn-aleatorio {
-        background-color: #4caf50;
-        color: white;
-        width: 100px;
-        margin-right: 10px;
-    }
-    .btn-whatsapp {
-        background-color: #00e676;
-        color: white;
-        width: 100%;
-    }
-    .btn-whatsapp-informes {
-        background-color: #2196F3;
-        color: white;
-        width: 100%;
-        max-width: 150px;
-    }
-    .btn:hover {
-        opacity: 0.8;
-    }
-    #total {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 20px; /* Cambia el tamaño de la fuente a 20px */
-    font-weight: bold; /* Hace que el texto sea en negrita */
-    color: black;
+body {
+    background-image: url('cielo 1.jpeg');
+    background-size: cover;
+    margin: 0;
+    font-family: Arial;
 }
-    #historial {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .historial-item {
-        display: inline-block;
-        padding: 5px 10px;
-        margin: 5px;
-        background-color: #333;
-        color: #fff;
-        border-radius: 5px;
-        font-size: 13px;
-    }
-    .historial-item .delete-btn {
-        margin-left: 5px;
-        color: #dc3545;
-        cursor: pointer;
-    }
-    .custom-button {
-        display: inline-block;
-        padding: 3px 8px;
-        margin-top: 20px;
-        background-color: #ff7f50; /* Naranja */
-        color: #fff;
-        text-decoration: none;
-        font-family: 'Anton', sans-serif;
-        border-radius: 10px;
-        transition: background-color 0.3s;
-    }
-    .custom-button:hover {
-        background-color: #ff6347; /* Naranja más oscuro al hacer hover */
-    }
-    .watermark {
-    position: absolute;
-    top: 34%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 10;
-    z-index: -1;
-    max-width: 300px; /* Ajusta el tamaño máximo de la marca de agua según tus necesidades */
+.container {
+    background: rgba(255,255,255,0.9);
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
 }
-    .image-text-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .image-text-container img {
-        max-width: 30px;
-        max-height: 25px;
-        margin: 0 5px;
-    }
+h1 { text-align:center; font-family:'Anton'; }
 
-    /* Alinear las imágenes de la columna 2 a la izquierda */
-    td:nth-child(2) .image-text-container {
-        justify-content: flex-start;
-    }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    gap: 8px;
+}
+.numero {
+    background:#222;
+    color:white;
+    padding:15px;
+    text-align:center;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12px;
+}
+.numero.vendido {
+    background:#e53935;
+}
 
-    /* Alinear las imágenes de la columna 4 a la derecha */
-    td:nth-child(4) .image-text-container {
-        justify-content: flex-end;
-    }
+.btn {
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin:5px;
+}
+
+.btn-admin { background:#333; color:white; }
+.btn-rifa { background:#fbbc04; }
+
 </style>
 </head>
 <body>
+
 <div class="container">
-    <h1>QUINIELOMAR'S</h1>
- <div><a href="tabla_resultados.html" class="custom-button">TABLA DE RESULTADOS</a></div>
-    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: black; font-size: 12px; font-family: 'Anton', sans-serif;">
-        <div>PRECIO: $10 c/u</div>
-        <div>CIERRE: VIERNES 6:00 P.M</div>
+<h1>🎟️ RIFA MUNDIAL ESPAÑA VS URUGUAY </h1>
+
+<div id="grid" class="grid"></div>
+
+<h3>Otras Rifas</h3>
+<button class="btn btn-rifa" onclick="ir('rifa2.html')">Rifa 2</button>
+<button class="btn btn-rifa" onclick="ir('rifa3.html')">Rifa 3</button>
+<button class="btn btn-rifa" onclick="ir('rifa4.html')">Rifa 4</button>
+<button class="btn btn-rifa" onclick="ir('rifa5.html')">Rifa 5</button>
+
+<br><br>
+<button class="btn btn-admin" onclick="loginAdmin()">Admin / Ruleta</button>
+
 </div>
-    <table>
-        <tr>
-            <th>LOCAL</th>
-            <th>EQUIPO</th>
-            <th>EMPATE</th>
-            <th>EQUIPO</th>
-            <th>VISITA</th>
-        </tr>
-          <tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="columbus.png" alt="imagen 1">
-                    <span>COLUMBUS</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span>NEW YORK</span>
-                    <img src="nycfc.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
- </tr>
-        <tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="philadelphia.png" alt="imagen 1">
-                    <span>PHILADELPHIA</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span>MAZATLAN</span>
-                    <img src="mazatlan.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
-        </tr>
-<tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="seattle.png" alt="imagen 1">
-                    <span>SOUNDERS</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span>LAFC</span>
-                    <img src="lafc.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
-        </tr>
-<tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="america.png" alt="imagen 1">
-                    <span>AMERICA</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span>COLORADO</span>
-                    <img src="colorado.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
-        </tr>
-<tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="valencia.png" alt="imagen 1">
-                    <span>VALENCIA</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span>BARCELONA</span>
-                    <img src="barcelona.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
-        </tr>
-        <tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="tijuana.png" alt="imagen 1">
-                    <span>TIJUANA</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span>SANTOS</span>
-                    <img src="santos.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
-        </tr>
-                <tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="atleticosl.png" alt="imagen 1">
-                    <span>SAN LUIS</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span>QUERETARO</span>
-                    <img src="queretaro.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
-        </tr>
-                <tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="mallorca.png" alt="imagen 1">
-                    <span>MALLORCA</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span>REAL MADRID</span>
-                    <img src="real madrid.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
-        </tr>
-         <tr>
-            <td onclick="selectCell(this)">L</td>
-            <td>
-                <div class="image-text-container">
-                    <img src="chelsea.png" alt="imagen 1">
-                    <span>CHELSEA</span>
-                </div>
-            </td>
-            <td onclick="selectCell(this)">E</td>
-            <td>
-                <div class="image-text-container">
-                    <span> MAN CITY</span>
-                    <img src="city.png" alt="Imagen 2">
-                </div>
-            </td>
-            <td onclick="selectCell(this)">V</td>
-        </tr>
-    </table>
-    <div class="btn-container-whatsapp">
-        <button class="btn btn-whatsapp-informes" onclick="sendWhatsAppMessageInformes()"><i class="fab fa-whatsapp"></i> INFORMES</button>
-    </div>
-    <div class="input-field">
-        <input type="number" id="total-goles" min="0" placeholder="Total de goles">
-    </div>
-    <div class="input-field">
-        <input type="text" id="nombre-usuario" placeholder="Nombre o Apodo">
-    </div>
-    <div class="btn-container">
-        <button class="btn btn-limpiar" onclick="limpiarSeleccion()"><i class="fas fa-broom"></i> LIMPIAR</button>
-        <button class="btn btn-aleatorio" onclick="seleccionAleatoria()"><i class="fas fa-random"></i> SELECCION ALEATORIA</button>
-        <button class="btn btn-quiniela" onclick="agregarQuiniela()"><i class="fas fa-plus"></i> AGREGAR</button>
-    </div>
-    <div class="btn-container-whatsapp">
-        <button class="btn btn-whatsapp" onclick="sendWhatsAppMessage()"><i class="fab fa-whatsapp"></i> ENVIAR </button>
-    </div>
-    <div id="total">TOTAL: $0</div>
-    <div id="historial"></div>
-</div>
-<!-- Agregar marca de agua como fondo de la tabla -->
-<img id="watermark" class="watermark" src="fondo 1.png" alt="Marca de agua">
-<script src="script.js"></script>
+
+<script>
+let key = 'rifa1';
+let boletos = JSON.parse(localStorage.getItem(key)) || Array(200).fill(null);
+
+function render(){
+    let grid = document.getElementById('grid');
+    grid.innerHTML='';
+    boletos.forEach((n,i)=>{
+        let div = document.createElement('div');
+        div.className = 'numero ' + (n ? 'vendido':'');
+        div.innerHTML = `<strong>${i+1}</strong><br>${n || ''}`;
+        div.onclick = ()=>comprar(i);
+        grid.appendChild(div);
+    });
+}
+
+function comprar(i){
+    if(boletos[i]) return alert('Ya vendido');
+    let nombre = prompt('Nombre del comprador');
+    if(!nombre) return;
+    boletos[i] = nombre;
+    localStorage.setItem(key, JSON.stringify(boletos));
+    render();
+}
+
+function loginAdmin(){
+    let pass = prompt('Contraseña');
+    if(pass==='1234') window.location='admin.html';
+    else alert('Incorrecta');
+}
+
+function ir(p){ window.location=p; }
+
+render();
+</script>
+
 </body>
 </html>
 
+
+<!-- ADMIN -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ruleta</title>
+<style>
+body{ background:#111; color:white; text-align:center; }
+canvas{ background:white; border-radius:50%; }
+</style>
+</head>
+<body>
+<h1>🎰 SORTEO</h1>
+<canvas id="ruleta" width="400" height="400"></canvas>
+<br><br>
+<button onclick="girar()">Girar</button>
+
+<script>
+let data = JSON.parse(localStorage.getItem('rifa1')) || [];
+let participantes = data.map((n,i)=> n?{n,i}:null).filter(Boolean);
+
+let c = document.getElementById('ruleta');
+let ctx = c.getContext('2d');
+
+function draw(){
+ let ang = 2*Math.PI/participantes.length;
+ participantes.forEach((p,i)=>{
+  ctx.beginPath();
+  ctx.moveTo(200,200);
+  ctx.arc(200,200,200,i*ang,(i+1)*ang);
+  ctx.fillStyle = i%2?'#f44336':'#2196f3';
+  ctx.fill();
+ });
+}
+
+draw();
+
+function girar(){
+ let g = participantes[Math.floor(Math.random()*participantes.length)];
+ alert('Ganador: '+g.n+' - Boleto '+(g.i+1));
+}
+</script>
+
+</body>
+</html>
